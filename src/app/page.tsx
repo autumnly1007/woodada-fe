@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from './auth/login/page';
+import Welcome from '@/components/layout/Welcome';
 
 export default async function HomePage() {
   return (
     <section>
-      <Login />
+      <Welcome />
     </section>
   );
 }

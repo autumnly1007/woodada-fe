@@ -14,9 +14,9 @@ export async function middleware(req: NextRequest) {
   //   return NextResponse.redirect(signInUrl);
   // }
   // return NextResponse.next();
-  const { pathname, search, origin, basePath } = req.nextUrl;
-  const signInUrl = new URL(`${basePath}/auth/login`, origin);
-  return NextResponse.redirect(signInUrl);
+  // const { pathname, search, origin, basePath } = req.nextUrl;
+  // const signInUrl = new URL(`${basePath}/auth/login`, origin);
+  // return NextResponse.redirect(signInUrl);
 }
 
 export const config = {
