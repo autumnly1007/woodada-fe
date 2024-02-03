@@ -1,16 +1,17 @@
 import { DefaultTheme } from 'styled-components';
 
-const theme: DefaultTheme = {
+export const theme: DefaultTheme = {
   colors: {
-    black: '#000000',
-    grey: '#D9D9D9',
+    orange: '#FF9048',
+    darkOrange: '#E98F54',
+    lightGray: '#DDDDDD',
+    gray: '#676767',
     blue: '#0094FF',
-    white: 'white',
+    white: '#FFFFFF',
+    black: '#000000',
+    text: '#3C3C3C',
   },
-  border: {
-    bottom: '1px solid #000000',
+  boxShadow: {
+    header: '0 4px 20px 0 rgba(178, 178, 178, 0.15)',
   },
-  padding: '1.3rem',
 };
-
-export default theme;

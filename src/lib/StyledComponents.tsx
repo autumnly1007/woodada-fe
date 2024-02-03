@@ -1,12 +1,17 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '@/styles/GlobalStyle';
-import theme from '@/styles/theme';
+import { IChildrenProps } from '@/interfaces/common.interface';
+import { theme } from '@/styles/theme';
 
-const StyledComponents = ({ children }: { children: React.ReactNode }) => {
+/**
+ * 스타일드 컴포넌트
+ * @param children: 자식 컴포넌트
+ */
+const StyledComponents: FC<IChildrenProps> = ({ children }) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {

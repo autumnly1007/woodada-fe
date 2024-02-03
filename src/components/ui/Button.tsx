@@ -1,20 +1,35 @@
-import React from 'react';
+'use client';
+import Image from 'next/image';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import googleLogo from '@/public/static/images/google.png';
+import { ButtonTheme } from '@/constants/ui-button.constant';
+import { IButtonProps } from '@/interfaces/components/\bbutton.interface';
+import { theme } from '@/styles/theme';
 
-interface IButtonProps {
-  text: string;
-  onClick: () => void;
-  disabled?: boolean;
-  theme?: string;
-}
-
-export default function Button({ text, onClick, disabled = false, theme = '' }: IButtonProps) {
+/**
+ * 공통 버튼 컴포넌트
+ * @param text: 텍스트
+ * @param onClick: 클릭 이벤트 함수
+ * @param disabled: 활성화 여부
+ * @param theme: 테마
+ * @author 안가을
+ */
+export const Button: FC<IButtonProps> = ({
+  text,
+  onClick,
+  disabled = false,
+  theme = ButtonTheme.WHITE,
+}) => {
   return (
-    <StyledButton onClick={() => onClick()} disabled={disabled} theme={theme}>
+    <StyledButton onClick={onClick} disabled={disabled} theme={theme}>
+      {theme === ButtonTheme.GOOGLE && (
+        <Image src={googleLogo} width={23} height={23} alt={'google login'} />
+      )}
       {text}
     </StyledButton>
   );
-}
+};
 
 const StyledButton = styled.button<{ theme: string }>`
   width: 350px;
@@ -22,6 +37,7 @@ const StyledButton = styled.button<{ theme: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
@@ -30,46 +46,47 @@ const StyledButton = styled.button<{ theme: string }>`
   font-weight: 500;
   ${(props) => {
     switch (props.theme) {
-      case 'white':
+      case ButtonTheme.WHITE:
         return `
-          border-color: #FF9048;
-          background-color: #ffffff; 
-          color: #FF9048;
+          border-color: ${theme.colors.orange};
+          background-color: ${theme.colors.white}; 
+          color: ${theme.colors.orange};
           &:hover {
-            border-color: #FF9048;
-            background-color: #FF9048; 
-            color: #ffffff;
+            border-color: ${theme.colors.orange};
+            background-color: ${theme.colors.orange}; 
+            color: ${theme.colors.white};
           }
         `;
-      case 'orange':
+      case ButtonTheme.ORANGE:
         return `
-          border-color: #FF9048;
-          background-color: #FF9048; 
-          color: #ffffff;
+          border-color: ${theme.colors.darkOrange};
+          background-color: ${theme.colors.darkOrange}; 
+          color: ${theme.colors.white};
           &:hover {
-            border-color: #FF9048;
-            background-color: #ffffff; 
-            color: #FF9048;
+            border-color: ${theme.colors.orange};
+            background-color: ${theme.colors.white}; 
+            color: ${theme.colors.orange};
           }
           `;
-      case 'google':
-        return `
-          border-color: #FFFFFF;
-          background-color: #00ff00; 
-          color: #3C3C3C;
-        `;
-      case 'text':
+      case ButtonTheme.TEXT:
         return `
           border: none;
           background-color: transparent; 
-          color: #A99F9F;
+          color: ${theme.colors.gray};
           width: fit-content;
           height: fit-content;
+          font-weight: 400;
         `;
-      default:
+      case ButtonTheme.GOOGLE:
         return `
-          background-color: #cccccc; 
-          color: #000000;
+          border-color: ${theme.colors.lightGray};
+          border-width: 1px;
+          background-color: ${theme.colors.white}; 
+          color: ${theme.colors.text};
+          &:hover {
+            border-width: 2px;
+            border-color: ${theme.colors.orange};
+          }
         `;
     }
   }}

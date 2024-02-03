@@ -277,6 +277,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-oauth/google@npm:latest":
+  version: 0.12.1
+  resolution: "@react-oauth/google@npm:0.12.1"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: fff63a0fc0b367519b48422c39f6ebc73226e4442ae148d752d05083a185660e66d047fcc8d88b962de97980cfb71f726de0a96ff5f00af0d7e68f333560a7c3
+  languageName: node
+  linkType: hard
+
 "@reduxjs/toolkit@npm:^2.0.1":
   version: 2.0.1
   resolution: "@reduxjs/toolkit@npm:2.0.1"
@@ -310,6 +320,13 @@ __metadata:
   dependencies:
     tslib: ^2.4.0
   checksum: 273fd3f3fc461a92f3790cc551ea054745c6d6959afbe1232e6d7aa1c722bbc114d308aab96bef5c78fc0303c85c7b472ef00e2253251cc89737f3b1af56e5a5
+  languageName: node
+  linkType: hard
+
+"@swc/plugin-styled-components@npm:^1.5.115":
+  version: 1.5.115
+  resolution: "@swc/plugin-styled-components@npm:1.5.115"
+  checksum: 868ef0c8212dbd27a49f9fb7d99968dda66aa7e752ec30cbf22f77e5611909bda064f6c3a36d288db24a2cb04c694bc940bb755c24490085d63af080bd91fba7
   languageName: node
   linkType: hard
 
@@ -1187,45 +1204,6 @@ __metadata:
   checksum: 46fe6e83e2cb1d85ba50bd52803c68be9bd953282fa7096f51fc29edd5d67ff84ff753c51966061e5ba7cb5e47ef6d36a91924eddb7f3f3483b1c560f77a0020
   languageName: node
   linkType: hard
-
-"diary@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "diary@workspace:."
-  dependencies:
-    "@reduxjs/toolkit": ^2.0.1
-    "@tanstack/react-query": ^5.17.10
-    "@tanstack/react-query-devtools": ^5.17.10
-    "@types/node": 18.15.1
-    "@types/react": ^18.2.47
-    "@types/react-dom": 18.0.11
-    "@typescript-eslint/eslint-plugin": ^6.20.0
-    "@typescript-eslint/parser": ^6.20.0
-    axios: ^1.6.5
-    dayjs: ^1.11.7
-    eslint: ^8.35.0
-    eslint-config-next: 13.2.4
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.32.2
-    husky: ^8.0.3
-    lint-staged: ^13.1.2
-    next: 13.2.4
-    next-auth: ^4.20.1
-    prettier: ^2.8.4
-    react: 18.2.0
-    react-cookie: ^7.0.1
-    react-dom: 18.2.0
-    react-hook-form: ^7.49.3
-    react-icons: ^4.8.0
-    react-multi-carousel: ^2.8.2
-    react-redux: ^9.1.0
-    react-spinners: ^0.13.8
-    styled-components: ^6.1.8
-    styled-reset: ^4.5.2
-    typescript: ^5.3.3
-    zod: ^3.22.4
-  languageName: unknown
-  linkType: soft
 
 "dir-glob@npm:^3.0.1":
   version: 3.0.1
@@ -3319,7 +3297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -3373,6 +3351,19 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+  languageName: node
+  linkType: hard
+
+"react-google-login@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "react-google-login@npm:5.2.2"
+  dependencies:
+    "@types/react": "*"
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^16 || ^17
+    react-dom: ^16 || ^17
+  checksum: 29199c7035c3c1070a82241dc4063628d693f35a1736d292e3db736e52da825e8a53f9287b0b12b08a50d676973ce1349a4d8243cd849ca25fed6a4284378880
   languageName: node
   linkType: hard
 
@@ -4312,6 +4303,48 @@ __metadata:
   checksum: 1a5c563d3c1b52d5f893c8b61afe11abc3bab4afac492e8da5bde69d550de701cf9806235f20a47b5c8fa8a1d6a9135841de2596535e998027a54589000e66d1
   languageName: node
   linkType: hard
+
+"woodada@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "woodada@workspace:."
+  dependencies:
+    "@react-oauth/google": latest
+    "@reduxjs/toolkit": ^2.0.1
+    "@swc/plugin-styled-components": ^1.5.115
+    "@tanstack/react-query": ^5.17.10
+    "@tanstack/react-query-devtools": ^5.17.10
+    "@types/node": 18.15.1
+    "@types/react": ^18.2.47
+    "@types/react-dom": 18.0.11
+    "@typescript-eslint/eslint-plugin": ^6.20.0
+    "@typescript-eslint/parser": ^6.20.0
+    axios: ^1.6.5
+    dayjs: ^1.11.7
+    eslint: ^8.35.0
+    eslint-config-next: 13.2.4
+    eslint-config-prettier: ^8.7.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react: ^7.32.2
+    husky: ^8.0.3
+    lint-staged: ^13.1.2
+    next: 13.2.4
+    next-auth: ^4.20.1
+    prettier: ^2.8.4
+    react: 18.2.0
+    react-cookie: ^7.0.1
+    react-dom: 18.2.0
+    react-google-login: ^5.2.2
+    react-hook-form: ^7.49.3
+    react-icons: ^4.8.0
+    react-multi-carousel: ^2.8.2
+    react-redux: ^9.1.0
+    react-spinners: ^0.13.8
+    styled-components: ^6.1.8
+    styled-reset: ^4.5.2
+    typescript: ^5.3.3
+    zod: ^3.22.4
+  languageName: unknown
+  linkType: soft
 
 "wrap-ansi@npm:^8.0.1, wrap-ansi@npm:^8.1.0":
   version: 8.1.0

@@ -1,6 +1,4 @@
 import React from 'react';
-import './globals.css';
-import { Open_Sans } from 'next/font/google';
 import { Metadata } from 'next';
 import StyledComponents from '@/lib/StyledComponents';
 import QueryProvider from '@/lib/QueryProvider';
@@ -8,9 +6,11 @@ import ReduxProvider from '@/lib/ReduxProvider';
 import ReactCookiesProvider from '@/lib/CookiesProvider';
 import Header from '@/components/layout/Header';
 import Main from '@/components/layout/Main';
+import { IChildrenProps } from '@/interfaces/common.interface';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
-
+/**
+ * 메타 데이터
+ */
 export const metadata: Metadata = {
   title: {
     default: 'woodada',
@@ -19,9 +19,13 @@ export const metadata: Metadata = {
   description: '우리들의 다정한 다이어리',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/**
+ * 루트 레이아웃
+ * @param children: 자식 컴포넌트
+ */
+export default function RootLayout({ children }: IChildrenProps) {
   return (
-    <html lang="en" className={openSans.className}>
+    <html lang={'en'}>
       <body>
         <QueryProvider>
           <ReduxProvider>
@@ -29,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <StyledComponents>
                 <Header />
                 <Main>{children}</Main>
-                <div id="portal" />
+                <div id={'portal'} />
               </StyledComponents>
             </ReactCookiesProvider>
           </ReduxProvider>

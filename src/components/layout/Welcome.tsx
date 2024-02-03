@@ -1,15 +1,16 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import logo from '@/public/static/images/logo_big.png';
 import styled from 'styled-components';
-import Button from '../ui/Button';
 import { useRouter } from 'next/navigation';
+import { ButtonTheme } from '@/constants/ui-button.constant';
+import { Button } from '../ui/Button';
 
 /**
  * 시작하기 페이지
  */
-const Welcome = () => {
+const Welcome: FC = () => {
   const router = useRouter();
 
   /**
@@ -21,8 +22,8 @@ const Welcome = () => {
 
   return (
     <Container>
-      <Image src={logo} alt="logo" width={442} height={88} />
-      <Button text="시작하기" onClick={handleStart} theme={'white'} />
+      <Image src={logo} alt={'logo'} width={442} height={88} />
+      <Button text={'시작하기'} onClick={handleStart} theme={ButtonTheme.WHITE} />
     </Container>
   );
 };

@@ -1,16 +1,13 @@
 'use client';
+import { IChildrenProps } from '@/interfaces/common.interface';
 import React, { FC } from 'react';
 import { styled } from 'styled-components';
-
-type Props = {
-  children: React.ReactNode;
-};
 
 /**
  * 메인 레이아웃
  * @param children: 자식 컴포넌트
  */
-const Main: FC<Props> = ({ children }) => {
+const Main: FC<IChildrenProps> = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
