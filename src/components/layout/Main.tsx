@@ -1,5 +1,6 @@
 'use client';
 import { IChildrenProps } from '@/interfaces/common.interface';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, { FC } from 'react';
 import { styled } from 'styled-components';
 
@@ -8,7 +9,13 @@ import { styled } from 'styled-components';
  * @param children: 자식 컴포넌트
  */
 const Main: FC<IChildrenProps> = ({ children }) => {
-  return <Container>{children}</Container>;
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+
+  return (
+    <Container>
+      <GoogleOAuthProvider clientId={clientId || ''}>{children}</GoogleOAuthProvider>
+    </Container>
+  );
 };
 
 export default Main;

@@ -1,49 +1,52 @@
 'use client';
-import Image from 'next/image';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import googleLogo from '@/public/static/images/google.png';
 import { ButtonTheme } from '@/constants/ui-button.constant';
 import { IButtonProps } from '@/interfaces/components/\bbutton.interface';
 import { theme } from '@/styles/theme';
 
 /**
  * 공통 버튼 컴포넌트
+ * @param type: 버튼 타입
  * @param text: 텍스트
  * @param onClick: 클릭 이벤트 함수
  * @param disabled: 활성화 여부
  * @param theme: 테마
+ * @param children: 자식 컴포넌트
+ * @param padding: 내부 여백
  * @author 안가을
  */
 export const Button: FC<IButtonProps> = ({
+  type = 'button',
   text,
   onClick,
   disabled = false,
   theme = ButtonTheme.WHITE,
+  children,
+  padding,
 }) => {
   return (
-    <StyledButton onClick={onClick} disabled={disabled} theme={theme}>
-      {theme === ButtonTheme.GOOGLE && (
-        <Image src={googleLogo} width={23} height={23} alt={'google login'} />
-      )}
+    <StyledButton type={type} onClick={onClick} disabled={disabled} theme={theme} padding={padding}>
+      {children && children}
       {text}
     </StyledButton>
   );
 };
 
-const StyledButton = styled.button<{ theme: string }>`
+const StyledButton = styled.button<{ theme: string; padding?: string }>`
   width: 350px;
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
   cursor: pointer;
   font-size: 17px;
   font-weight: 500;
+  padding: ${(props) => (props.padding ? props.padding : '1px 6px')};
   ${(props) => {
     switch (props.theme) {
       case ButtonTheme.WHITE:
@@ -76,6 +79,9 @@ const StyledButton = styled.button<{ theme: string }>`
           width: fit-content;
           height: fit-content;
           font-weight: 400;
+          &:hover {
+            color: ${theme.colors.black};
+          }
         `;
       case ButtonTheme.GOOGLE:
         return `

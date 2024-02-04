@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import React, { FC } from 'react';
-import logo from '@/public/static/images/logo_big.png';
 import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { ButtonTheme } from '@/constants/ui-button.constant';
@@ -22,7 +21,7 @@ const Welcome: FC = () => {
 
   return (
     <Container>
-      <Image src={logo} alt={'logo'} width={442} height={88} />
+      <Image src={'/static/images/logo_big.png'} alt={'logo'} width={442} height={88} />
       <Button text={'시작하기'} onClick={handleStart} theme={ButtonTheme.WHITE} />
     </Container>
   );

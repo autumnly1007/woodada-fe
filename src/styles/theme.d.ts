@@ -10,9 +10,11 @@ interface Theme {
     white: string;
     black: string;
     text: string;
+    background: string;
   };
   boxShadow: {
     header: string;
+    contents: string;
   };
 }
 
