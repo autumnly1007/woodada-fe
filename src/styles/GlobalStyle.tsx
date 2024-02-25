@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import './font.css';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
   * {
     box-sizing: border-box;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: "Pretendard Variable", Pretendard,-apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   }
   html,
   body {
@@ -19,6 +20,15 @@ const GlobalStyle = createGlobalStyle`
   }
   li {
     list-style: none;
+  }
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  #modal-portal {
+    position: absolute;
   }
 `;
 

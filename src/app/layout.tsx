@@ -33,7 +33,6 @@ export default function RootLayout({ children }: IChildrenProps) {
               <StyledComponents>
                 <Header />
                 <Main>{children}</Main>
-                <div id={'portal'} />
               </StyledComponents>
             </ReactCookiesProvider>
           </ReduxProvider>

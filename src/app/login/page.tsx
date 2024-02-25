@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { ButtonTheme } from '@/constants/ui-button.constant';
 import { Button } from '@/components/ui/Button';
-import { useRouter } from 'next/navigation';
 import { useGoogleLogin } from '@react-oauth/google';
+import { useRouter } from 'next/navigation';
 
 /**
  * 로그인 페이지
@@ -13,6 +13,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 const Login: FC = () => {
   const router = useRouter();
   const [isEmailLogin, setIsEmailLogin] = useState(false);
+  // const;
 
   /**
    * 로그인
@@ -26,13 +27,15 @@ const Login: FC = () => {
    * @param code: 코드 데이터
    */
   const handleGoogleLoginSuccess = async (code: any) => {
-    console.log('code => ', code);
-    // const response = await fetch('/api/auth/google-login', {
+    // TODO: 백엔드 에러 수정 후 주석 해제
+    // const { status } = await fetch('/api/login', {
     //   method: 'POST',
-    //   body: JSON.stringify(res),
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ code }),
     // });
-    // console.log('response => ', response);
+    // if (status === 200) {
     router.push('/my-diary');
+    // }
   };
 
   /**
@@ -40,7 +43,7 @@ const Login: FC = () => {
    */
   const googleLogin = useGoogleLogin({
     scope: 'email profile',
-    onSuccess: async ({ code }) => handleGoogleLoginSuccess(code),
+    onSuccess: ({ code }) => handleGoogleLoginSuccess(code),
     onError: (error) => console.error(error),
     flow: 'auth-code',
   });
@@ -52,18 +55,9 @@ const Login: FC = () => {
           <Image src={'/static/images/logo_big.png'} alt={'logo'} width={330} height={68} />
           <Buttons>
             <Button text={'구글 로그인'} onClick={googleLogin} theme={ButtonTheme.GOOGLE}>
-              <Image
-                src={'/static/images/google.png'}
-                width={23}
-                height={23}
-                alt={'google login'}
-              />
+              <Image src={'/static/images/google.png'} width={23} height={23} alt={'google login'} />
             </Button>
-            <Button
-              text={'이메일 로그인·회원가입'}
-              onClick={handleLogin}
-              theme={ButtonTheme.ORANGE}
-            />
+            <Button text={'이메일 로그인·회원가입'} onClick={handleLogin} theme={ButtonTheme.ORANGE} />
           </Buttons>
         </>
       ) : (

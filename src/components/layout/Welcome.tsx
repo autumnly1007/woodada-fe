@@ -5,18 +5,23 @@ import styled from 'styled-components';
 import { useRouter } from 'next/navigation';
 import { ButtonTheme } from '@/constants/ui-button.constant';
 import { Button } from '../ui/Button';
+import { useModal } from '@/hooks/useModal';
 
 /**
  * 시작하기 페이지
  */
 const Welcome: FC = () => {
   const router = useRouter();
+  const { Confirm } = useModal();
 
   /**
    * 시작하기 버튼 클릭 시 로그인 페이지로 이동
    */
-  const handleStart = () => {
-    router.push('/login');
+  const handleStart = async () => {
+    const response = await Confirm('야옹', '야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹야옹 야옹?');
+    if (response) {
+      router.push('/login');
+    }
   };
 
   return (

@@ -1,38 +1,35 @@
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import { useEffect, useRef, useState } from 'react';
+import { IResponse } from '@/interfaces/common.interface';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { useRef, useState } from 'react';
 
 const API_BASE_URL = `${process.env.NEXT_PUBLIC_API_BASE_URL}`;
-axios.defaults.baseURL = API_BASE_URL;
 
 /**
  * axios 커스텀 훅
- * @param axiosParams: axios 요청 데이터
+ * @param config: axios 요청 데이터
  * @author 안가을
  */
-export const useAxios = <T, D = any>(axiosParams: AxiosRequestConfig<D>) => {
-  const [response, setResponse] = useState<T | null>(null);
-  const [error, setError] = useState<AxiosError | unknown>();
+export const useAxios = () => {
   const [loading, setLoading] = useState(true);
   const controllerRef = useRef(new AbortController());
-  const cancelRequest = () => controllerRef.current.abort();
+  const cancel = () => controllerRef.current.abort();
 
-  const fetchData = async (params: AxiosRequestConfig<D>) => {
+  const fetch = async (params: AxiosRequestConfig) => {
     try {
-      const result = await axios.request<T>({
+      setLoading(true);
+      const result: AxiosResponse<IResponse> = await axios.request({
         ...params,
+        baseURL: API_BASE_URL,
         signal: controllerRef.current.signal,
       });
-      setResponse(result.data);
-    } catch (err: AxiosError | unknown) {
-      setError(err);
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.error(error);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchData(axiosParams);
-  }, [axiosParams]);
-
-  return { cancelRequest, response, error, loading };
+  return { cancel, fetch, loading };
 };

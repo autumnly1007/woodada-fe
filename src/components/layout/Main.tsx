@@ -3,6 +3,8 @@ import { IChildrenProps } from '@/interfaces/common.interface';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, { FC } from 'react';
 import { styled } from 'styled-components';
+import { ModalProvider } from '../ui/ModalProvider';
+import ModalContainer from '../ui/ModalContainer';
 
 /**
  * 메인 레이아웃
@@ -13,7 +15,11 @@ const Main: FC<IChildrenProps> = ({ children }) => {
 
   return (
     <Container>
-      <GoogleOAuthProvider clientId={clientId || ''}>{children}</GoogleOAuthProvider>
+      <ModalProvider>
+        <GoogleOAuthProvider clientId={clientId || ''}>{children}</GoogleOAuthProvider>
+        <ModalContainer />
+        <div id={'modal-portal'} />
+      </ModalProvider>
     </Container>
   );
 };

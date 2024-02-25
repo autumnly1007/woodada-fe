@@ -14,18 +14,8 @@ const PageContainer: FC<IChildrenProps> = ({ children }) => {
       <Contents>{children}</Contents>
       <Background>
         <PinkBall src={'/static/images/pink-ball.png'} alt="pink-ball" width={687} height={525} />
-        <YellowBall
-          src={'/static/images/yellow-ball.png'}
-          alt="yellow-ball"
-          width={671}
-          height={636}
-        />
-        <GreenBall
-          src={'/static/images/green-ball.png'}
-          alt="green-ball"
-          width={646}
-          height={226}
-        />
+        <YellowBall src={'/static/images/yellow-ball.png'} alt="yellow-ball" width={671} height={636} />
+        <GreenBall src={'/static/images/green-ball.png'} alt="green-ball" width={646} height={226} />
       </Background>
     </Container>
   );
@@ -46,11 +36,12 @@ const Contents = styled.div`
   width: 1440px;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
   backdrop-filter: blur(34px);
   box-shadow: ${theme.boxShadow.contents};
   z-index: 10;
+  padding: 30px 20px 0;
 `;
 
 const Background = styled.div`

@@ -9,10 +9,11 @@ import { useAxios } from './useAxios';
  * @author 안가을
  */
 const useCustomQuery = (key: string, axiosOptions: AxiosRequestConfig) => {
+  const { fetch } = useAxios();
   const queryOptions = {
     queryKey: [key],
     queryFn: async () => {
-      const { response } = await useAxios(axiosOptions);
+      const response = await fetch(axiosOptions);
       return response;
     },
   };

@@ -34,14 +34,10 @@ const Header: FC = () => {
                       onClick={() => router.push(menu.path)}
                       theme={ButtonTheme.TEXT}
                       padding={'28px 20px'}
+                      fontSize={'20px'}
                     >
                       {menu.icon && (
-                        <Image
-                          src={`/static/images/${menu.icon}.png`}
-                          alt={menu.label}
-                          width={20}
-                          height={17}
-                        />
+                        <Image src={`/static/images/${menu.icon}.png`} alt={menu.label} width={20} height={17} />
                       )}
                     </Button>
                   </MenuWrapper>
@@ -53,14 +49,10 @@ const Header: FC = () => {
                     onClick={() => router.push(menu.path)}
                     theme={ButtonTheme.TEXT}
                     padding={'28px 20px'}
+                    fontSize={'20px'}
                   >
                     {menu.icon && (
-                      <Image
-                        src={`/static/images/${menu.icon}.png`}
-                        alt={menu.label}
-                        width={20}
-                        height={17}
-                      />
+                      <Image src={`/static/images/${menu.icon}.png`} alt={menu.label} width={20} height={17} />
                     )}
                   </Button>
                 </MenuWrapper>
@@ -75,18 +67,10 @@ const Header: FC = () => {
           <Fragment key={index}>
             {menu.page && menu.page.length > 0 ? (
               menu.page.includes(path) && (
-                <Button
-                  text={menu.label}
-                  onClick={() => router.push(menu.path)}
-                  theme={ButtonTheme.TEXT}
-                />
+                <Button text={menu.label} onClick={() => router.push(menu.path)} theme={ButtonTheme.TEXT} />
               )
             ) : (
-              <Button
-                text={menu.label}
-                onClick={() => router.push(menu.path)}
-                theme={ButtonTheme.TEXT}
-              />
+              <Button text={menu.label} onClick={() => router.push(menu.path)} theme={ButtonTheme.TEXT} />
             )}
           </Fragment>
         ))}
@@ -101,7 +85,7 @@ const Container = styled.header`
   width: 100vw;
   height: 80px;
   position: relative;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
