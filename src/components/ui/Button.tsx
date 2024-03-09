@@ -15,6 +15,7 @@ import { theme } from '@/styles/theme';
  * @param children: 자식 컴포넌트
  * @param padding: 내부 여백
  * @param fontSize: 글자 크기
+ * @param width: 가로 길이
  * @author 안가을
  */
 export const Button: FC<IButtonProps> = ({
@@ -26,6 +27,7 @@ export const Button: FC<IButtonProps> = ({
   children,
   padding,
   fontSize,
+  width = '350px',
 }) => {
   /**
    * 클릭 이벤트
@@ -44,6 +46,7 @@ export const Button: FC<IButtonProps> = ({
       theme={theme}
       padding={padding}
       fontSize={fontSize}
+      width={width}
     >
       {children && children}
       {text}
@@ -51,8 +54,8 @@ export const Button: FC<IButtonProps> = ({
   );
 };
 
-const StyledButton = styled.button<{ theme: string; padding?: string; fontSize?: string }>`
-  width: 350px;
+const StyledButton = styled.button<{ theme: string; padding?: string; fontSize?: string; width?: string }>`
+  width: ${(props) => props.width};
   height: 55px;
   position: relative;
   display: flex;
@@ -87,8 +90,8 @@ const StyledButton = styled.button<{ theme: string; padding?: string; fontSize?:
         `;
       case ButtonTheme.ORANGE:
         return `
-          border-color: ${theme.colors.darkOrange};
-          background-color: ${theme.colors.darkOrange}; 
+          border-color: ${theme.colors.orange};
+          background-color: ${theme.colors.orange}; 
           color: ${theme.colors.white};
           &:hover {
             border-color: ${theme.colors.orange};

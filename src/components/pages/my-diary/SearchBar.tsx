@@ -1,12 +1,12 @@
 import { theme } from '@/styles/theme';
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 /**
  * 일기 검색창 컴포넌트
  */
-const SearchBar = () => {
+const SearchBar: FC = () => {
   return (
     <Container>
       <Image src="/static/images/search.png" alt="search" width={24} height={24} />

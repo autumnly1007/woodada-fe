@@ -13,4 +13,5 @@ export interface IButtonProps {
   children?: ReactNode; // 자식 컴포넌트
   padding?: string; // 내부 여백
   fontSize?: string; // 폰트 크기
+  width?: string; // 가로 길이
 }
